@@ -16,7 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = ['My Documents'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
-export default function ResponsiveAppBar ({ handleView }) {
+export default function ResponsiveAppBar ({ handleViewChange }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,6 +41,7 @@ export default function ResponsiveAppBar ({ handleView }) {
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
+            onClick={() => {handleViewChange(0)}}
             variant="h6"
             noWrap
             component="a"
@@ -88,7 +89,7 @@ export default function ResponsiveAppBar ({ handleView }) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={() => {handleCloseNavMenu; handleView(1);}}>
+                <MenuItem key={page} onClick={() => {handleCloseNavMenu; handleViewChange(1);}}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -117,7 +118,7 @@ export default function ResponsiveAppBar ({ handleView }) {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => {handleCloseNavMenu; handleViewChange(0);}}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -126,7 +127,7 @@ export default function ResponsiveAppBar ({ handleView }) {
           </Box>
           <Box>
               <Button
-                onClick={() => {handleCloseNavMenu; handleView(1); }}
+                onClick={() => {handleCloseNavMenu; handleViewChange(1);}}
                 sx={{ my: 2, color: 'white', display: 'block', mr: 1 }}
               >
                 New Document

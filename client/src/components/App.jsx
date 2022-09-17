@@ -6,13 +6,13 @@ import ContentView from "./ContentView";
 export default function App() {
   const [view, setView] = useState(0);
 
-  const handleView = (viewID) => {
+  const handleViewChange = (viewID) => {
     setView(viewID);
   };
 
   return (
     <div>
-      <ResponsiveAppBar handleView={handleView} />
+      <ResponsiveAppBar handleViewChange={handleViewChange} />
       <ContentView viewID={view} />
     </div>
   )
