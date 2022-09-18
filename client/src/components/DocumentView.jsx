@@ -1,7 +1,9 @@
-export default function DocumentView () {
-    return (
-        <>
-            <h1>Good coop</h1>
-        </>
-    );
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+export default function DocumentView() {
+    const [value, setValue] = useState('');
+
+    return <ReactQuill theme="snow" value={value} onChange={setValue} />;
 }

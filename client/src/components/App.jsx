@@ -13,7 +13,7 @@ export default function App() {
   return (
     <div>
       <ResponsiveAppBar handleViewChange={handleViewChange} />
-      <ContentView viewID={view} />
+      <ContentView viewID={view} handleViewChange={handleViewChange} />
     </div>
   )
 }
